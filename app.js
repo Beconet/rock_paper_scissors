@@ -10,16 +10,19 @@ console.log("you can choose on the website to select one for fight computer!")
 console.log("This game, you(as a player) need to play 5 round, to decision who gonna win!!")
 console.log("you go first!")
 
-//create event listen for rock paper scissor
-function btnChoice(choice){
-       playerChoice = choice;
-       console.log(`you choose ${choice}`)
-}
-// event listener for button
+// set event listener for button from queryselector
 rock.addEventListener('click',()=>{btnChoice("rock")})
 paper.addEventListener('click',()=>{btnChoice("paper")})
 scissors.addEventListener('click',()=>{btnChoice("scissors")})
 
+
+//create event listen for rock paper scissor
+function btnChoice(choice){
+       let playerChoice = choice;
+       console.log(`you choose ${choice}`)
+       
+
+}
 
 // inside of play (5 round) keep score and decision who gonna win this game.
 function game(){
@@ -31,7 +34,9 @@ function game(){
 
 //function play compare player and computer choice
 function playRound(playerSelection,computerSelection){
-
+        let rockSelect = 1;
+        let paperSelect = 2;
+        let scissorSelect = 3;
 }
 
 
@@ -39,16 +44,12 @@ function playRound(playerSelection,computerSelection){
 function getComputerChoice(){
         const choices = ["rock","paper","scissors"]
         let randomNum = Math.floor(Math.random() * choices.length);
-        console.log(randomNum)
         return choices[randomNum]
-
 }
 
-
+// run program here
 const computerSelection = getComputerChoice()
 
-console.log(playerChoice,"VS",computerSelection);
-//start program this!!
 
 
 
