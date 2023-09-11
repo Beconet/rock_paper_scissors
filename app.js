@@ -5,54 +5,53 @@ const scissors = document.querySelector("#scissors");
 const h1 = document.querySelector("#text-header");
 
 //first conversation on terminal
-console.log("Hi there! let's play rock paper scissors")
+console.log("Hi there! let's play rock paper scissors.")
 console.log("you can choose on the website to select one for fight computer!")
+console.log("This game, you(as a player) need to play 5 round, to decision who gonna win!!")
 console.log("you go first!")
 
 //create event listen for rock paper scissor
-rock.addEventListener('click',()=>{
-        console.log("You choose rock");
-        let playerChoice = "rock";
-        compare(playerChoice)
-})
-paper.addEventListener('click',()=>{
-        console.log("You choose paper");
-        let playerChoice = "paper";
-        compare(playerChoice)
-})
-scissors.addEventListener('click',()=>{
-        console.log("You choose scissors");
-        let playerChoice = "scissors";
-        compare(playerChoice)
-})
-
-//compare user and computer
-function compare(playerChoice){
-        if (choice == "rock"){
-                console.log("playease");
-        }else{
-                console.log('wtf')
-        }
-
+function btnChoice(choice){
+       playerChoice = choice;
+       console.log(`you choose ${choice}`)
 }
+// event listener for button
+rock.addEventListener('click',()=>{btnChoice("rock")})
+paper.addEventListener('click',()=>{btnChoice("paper")})
+scissors.addEventListener('click',()=>{btnChoice("scissors")})
+
 
 // inside of play (5 round) keep score and decision who gonna win this game.
 function game(){
+        for (let i = 0; i < 5; i++) {
+                const playerSelection = playerChoice;
+                const computerSelection = getComputerChoice();
+                playRound(playerSelection, computerSelection);
+}}
 
-}
-
-//function play game
+//function play compare player and computer choice
 function playRound(playerSelection,computerSelection){
 
 }
 
 
-//random choice for computer
+//random choice for computer to choose it
 function getComputerChoice(){
+        const choices = ["rock","paper","scissors"]
+        let randomNum = Math.floor(Math.random() * choices.length);
+        console.log(randomNum)
+        return choices[randomNum]
 
 }
 
 
 const computerSelection = getComputerChoice()
 
-//console.log(playRound(playerSelection,computerSelection));
+console.log(playerChoice,"VS",computerSelection);
+//start program this!!
+
+
+
+
+
+
