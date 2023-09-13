@@ -1,9 +1,15 @@
+.contain{
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 .center{
     text-align: center;
     justify-content: center;
     align-items: center;
     border: solid black 1px;
     background-color: rgb(142, 202, 255);
-    padding: 30px;
-    border-radius: 2%;
+    border-radius: 2px;
+    padding: 20px;
 }

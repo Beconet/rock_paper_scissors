@@ -2,7 +2,9 @@
 const rock = document.querySelector("#rock");
 const paper = document.querySelector("#paper");
 const scissors = document.querySelector("#scissors");
-const h1 = document.querySelector("#text-header");
+const h1 = document.querySelector("#text-score");
+const text = document.querySelector("#text");
+const head = document.getElementById("text-header")
 
 //first conversation on terminal
 console.log("Hi there! let's play rock paper scissors.")
@@ -14,31 +16,98 @@ console.log("you go first!")
 rock.addEventListener('click',()=>{btnChoice("rock")})
 paper.addEventListener('click',()=>{btnChoice("paper")})
 scissors.addEventListener('click',()=>{btnChoice("scissors")})
-let playerChoice;
-let computerSelection;
-let playScore;
-let computerScore;
+let playerChoice = "";
+let computerSelection = "";
+let playerScore = 0;
+let computerScore = 0;
+let play = 0;
+
 //create event listen for rock paper scissor
 function btnChoice(choice){
         playerChoice = choice;
-       console.log(`you choose ${choice}`)
-       game()
+        if (play != 5){
+                console.log(`you choose ${choice}`)
+                console.log("***************************")
+                game()
+                play +=1;
+                if(play!= 5){
+                        console.log("|||||||||Select again!|||||||||||")
+                }
+        }
+        
+        if(play == 5){
+                if(computerScore < playerScore){
+                        h1.textContent = `Player score : ${playerScore} Computer score : ${computerScore}`;
+                        head.textContent = 'You win'
+                        head.style.color = 'green';
+                        console.log("Congrats! you win")
+                }else if(playerScore < computerScore){
+                        h1.textContent = `Player score : ${playerScore} Computer score : ${computerScore}`;
+                        head.textContent = 'You lose'
+                        head.style.color = 'red';
+                        console.log("Computer win! you you lose....")
+                }else{
+                        h1.textContent = `Player score : ${playerScore} Computer score : ${computerScore}\n game tie`;
+                        console.log("game tie!!")
+        }
+        setTimeout(() => {
+                text.textContent = `please restart by reface website to play again`;
+        }, 3000);
+        console.log("game end, please restart by reface website to play again.")
+        }
 }
-
 // inside of play (5 round) keep score and decision who gonna win this game.
 function game(){
-        for (let i = 0; i < 1; i++) {
                 const playerSelection = playerChoice;
                 const computerSelection = getComputerChoice();
-                console.log(`computer choose ${computerSelection}`)
+                console.log(`Computer choose ${computerSelection}`)
+                console.log("***************************")
                 playRound(playerSelection, computerSelection);
-}}
+                text.textContent = `| Player select : ${playerSelection} | Computer select : ${computerSelection} |`
+} 
 
 //function play compare player and computer choice
 function playRound(playerSelection,computerSelection){
-        let rockSelect = 1;
-        let paperSelect = 2;
-        let scissorSelect = 3;
+        if(playerSelection == "rock"){
+                if(computerSelection == "paper"){
+                        computerScore +=1;  
+                        console.log("Computer win 1 score")
+                        head.textContent = 'Computer win 1 score'
+                }else if(computerSelection == "scissors"){
+                        playerScore +=1;
+                        console.log("player win 1 score")
+                        head.textContent = 'player win 1 score'
+                }else{
+                        console.log("tie")
+                        head.textContent = 'tie'
+                }
+        }else if (playerSelection == "paper"){
+                if(computerSelection == "scissors"){
+                        computerScore +=1;  
+                        console.log("Computer win 1 score")
+                        head.textContent = 'Computer win 1 score'
+                }else if(computerSelection == "rock"){
+                        playerScore +=1;
+                        console.log("player win 1 score")
+                        head.textContent = 'player win 1 score'
+                }else{
+                        console.log("tie")
+        }}else if(playerSelection == "scissors"){
+                if(computerSelection == "rock"){
+                        computerScore +=1;  
+                        console.log("Computer win 1 score")
+                        head.textContent = 'Computer win 1 score'
+                }else if(computerSelection == "paper"){
+                        playerScore +=1;
+                        console.log("player win 1 score")
+                        head.textContent = 'player win 1 score'
+                }else{
+                        console.log("tie")
+                        head.textContent = 'tie'
+        }}
+        h1.textContent = `Player score : ${playerScore} Computer score : ${computerScore}`;
+        console.log("Player score :",playerScore,"computer score : ",computerScore)
+        console.log("***************************")
 }
 
 
