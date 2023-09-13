@@ -18,10 +18,9 @@ scissors.addEventListener('click',()=>{btnChoice("scissors")})
 
 //create event listen for rock paper scissor
 function btnChoice(choice){
-       let playerChoice = choice;
+       var playerChoice = choice;
        console.log(`you choose ${choice}`)
-       
-
+       console.log(`computer choose ${getComputerChoice()}`)
 }
 
 // inside of play (5 round) keep score and decision who gonna win this game.
@@ -48,7 +47,7 @@ function getComputerChoice(){
 }
 
 // run program here
-const computerSelection = getComputerChoice()
+
 
 
 
