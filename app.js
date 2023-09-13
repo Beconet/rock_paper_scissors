@@ -14,20 +14,23 @@ console.log("you go first!")
 rock.addEventListener('click',()=>{btnChoice("rock")})
 paper.addEventListener('click',()=>{btnChoice("paper")})
 scissors.addEventListener('click',()=>{btnChoice("scissors")})
-
-
+let playerChoice;
+let computerSelection;
+let playScore;
+let computerScore;
 //create event listen for rock paper scissor
 function btnChoice(choice){
-       var playerChoice = choice;
+        playerChoice = choice;
        console.log(`you choose ${choice}`)
-       console.log(`computer choose ${getComputerChoice()}`)
+       game()
 }
 
 // inside of play (5 round) keep score and decision who gonna win this game.
 function game(){
-        for (let i = 0; i < 5; i++) {
+        for (let i = 0; i < 1; i++) {
                 const playerSelection = playerChoice;
                 const computerSelection = getComputerChoice();
+                console.log(`computer choose ${computerSelection}`)
                 playRound(playerSelection, computerSelection);
 }}
 
@@ -46,9 +49,8 @@ function getComputerChoice(){
         return choices[randomNum]
 }
 
+
 // run program here
-
-
 
 
 
